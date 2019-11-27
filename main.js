@@ -52,6 +52,13 @@ for (var i = 0; i < N; i++) {
     });
 }
 
+path.attr("stroke-dasharray", spiralLength + " " + spiralLength)
+    .attr("stroke-dashoffset", spiralLength)
+    .transition()
+    .duration(60000)
+    .ease(d3.easeLinear)
+    .attr("stroke-dashoffset", 0);
+
 var timeScale = d3.scaleTime()
     .domain(d3.extent(someData, function(d){
     return d.date;
