@@ -128,6 +128,8 @@ svg.selectAll("text")
     }
     return false;
     })
+    .transition()
+    .duration(0)
     .text(function(d){
     return tF(d.date);
     })
@@ -137,6 +139,7 @@ svg.selectAll("text")
     .attr("startOffset", function(d){
     return ((d.linePer / spiralLength) * 100) + "%";
     })
+    .delay(function(d,i){return((i-1)*5000+1000);});
 
 
 var tooltip = d3.select("#chart")
